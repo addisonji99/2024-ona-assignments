@@ -39,47 +39,48 @@ print(centrality_df)
 ```{r}
 plot(g, vertex.size = degree_centrality * 2, vertex.label.cex = 0.7, main = "Bus Network with Degree Centrality")
 ```
+
+---
 # Discuss on each seat's beneficial and drawbacks
-#################################
 Seat A
 Degree Centrality: 6
 Closeness Centrality: 0.0625
 Betweenness Centrality: 14
-##################################
+
 Benefits:
 Seat A is directly connected to many other seats, facilitating easy communication. It's a strategic position for networking.
 The high betwenness indicates its a crucial bridge within the network. Choosing this seat could help facilitate or cutdown the flow of information.
 Drawbacks:
 The high betweenness centrality might also mean that being in Seat A could be overwhelming due to the potential information overload and the responsibility of being a central connector.
 
-##################################
+
 Seat B
 Degree Centrality: 10
 Closeness Centrality: 0.07142857
 Betweenness Centrality: 9.0333333
-##################################
+
 Benefits:
 Seat B has the highest degree and closeness centrality, indicating not only numerous direct connections but also short paths to all other seats. This could be advantageous for quickly developing a broad network.The relatively high betweenness centrality indicates a significant role in network connectivity, albeit less than Seat A.
 Drawbacks:
 The central role comes with the expectation of being highly active and engaged in interactions, which might not be ideal for whom preferring more passive engagement.
 
-###################################
+
 Seat C
 Degree Centrality: 10
 Closeness Centrality: 0.07142857
 Betweenness Centrality: 8.6
-###################################
+
 Benefits:
 Similar to Seat B, Seat C offers numerous connections and efficient access to the network, which is beneficial for someone looking to quickly integrate and influence.Slightly lower betweenness centrality than Seat B, suggesting a balanced position between being a connector and maintaining manageable levels of information flow.
 Drawbacks:
 While advantageous for network centrality, the high engagement level might be demanding in terms of social energy required.
 
-###################################
+
 Seat D
 Degree Centrality: 10
 Closeness Centrality: 0.0625
 Betweenness Centrality: 3.2666667
-###################################
+
 Benefits:
 High degree centrality offers numerous direct connections, which is great for building a wide network. Lower betweenness centrality compared to Seats A, B, and C, which might mean fewer responsibilities as a central connector, potentially leading to a more relaxed social experience.
 Drawbacks:
