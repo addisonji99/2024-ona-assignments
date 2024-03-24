@@ -1,0 +1,89 @@
+
+---
+title: "Exercise 2"
+author: "Addison Ji"
+---
+
+```{r}
+library(igraph) 
+library(readxl)
+library(tidyverse)
+```
+
+# Read Data
+```{r}
+fakebook_data <- read.csv("/Users/addisonji/Documents/McGill/Winter-ORGB-672-Org_Network_Analysis/2024-ona-assignments/Exercise_2/data_fakebook.csv") 
+attach(fakebook_data)
+```
+# Convert dataframe to an igraph object
+```{r}
+g <- graph_from_data_frame(d = fakebook_data, directed = FALSE)
+# Plot the network
+plot(g)
+```
+```{r}
+# Degree centrality
+degree_centrality <- degree(g)
+# Closeness centrality
+closeness_centrality <- closeness(g)
+# Betweenness centrality
+betweenness_centrality <- betweenness(g)
+```
+# Combine all centrality measures into a dataframe for easier comparison
+```{r}
+centrality_df <- data.frame( Node = names(degree_centrality), Degree = degree_centrality, Closeness = closeness_centrality, Betweenness = betweenness_centrality )
+# View the centrality measures
+print(centrality_df)
+```
+# Plot with degree centrality
+```{r}
+plot(g, vertex.size = degree_centrality * 2, vertex.label.cex = 0.7, main = "Bus Network with Degree Centrality")
+```
+# Discuss on each seat's beneficial and drawbacks
+#################################
+Seat A
+Degree Centrality: 6
+Closeness Centrality: 0.0625
+Betweenness Centrality: 14
+##################################
+Benefits:
+Seat A is directly connected to many other seats, facilitating easy communication. It's a strategic position for networking.
+The high betwenness indicates its a crucial bridge within the network. Choosing this seat could help facilitate or cutdown the flow of information.
+Drawbacks:
+The high betweenness centrality might also mean that being in Seat A could be overwhelming due to the potential information overload and the responsibility of being a central connector.
+
+##################################
+Seat B
+Degree Centrality: 10
+Closeness Centrality: 0.07142857
+Betweenness Centrality: 9.0333333
+##################################
+Benefits:
+Seat B has the highest degree and closeness centrality, indicating not only numerous direct connections but also short paths to all other seats. This could be advantageous for quickly developing a broad network.The relatively high betweenness centrality indicates a significant role in network connectivity, albeit less than Seat A.
+Drawbacks:
+The central role comes with the expectation of being highly active and engaged in interactions, which might not be ideal for whom preferring more passive engagement.
+
+###################################
+Seat C
+Degree Centrality: 10
+Closeness Centrality: 0.07142857
+Betweenness Centrality: 8.6
+###################################
+Benefits:
+Similar to Seat B, Seat C offers numerous connections and efficient access to the network, which is beneficial for someone looking to quickly integrate and influence.Slightly lower betweenness centrality than Seat B, suggesting a balanced position between being a connector and maintaining manageable levels of information flow.
+Drawbacks:
+While advantageous for network centrality, the high engagement level might be demanding in terms of social energy required.
+
+###################################
+Seat D
+Degree Centrality: 10
+Closeness Centrality: 0.0625
+Betweenness Centrality: 3.2666667
+###################################
+Benefits:
+High degree centrality offers numerous direct connections, which is great for building a wide network. Lower betweenness centrality compared to Seats A, B, and C, which might mean fewer responsibilities as a central connector, potentially leading to a more relaxed social experience.
+Drawbacks:
+The lower closeness centrality relative to B and C suggests that while well-connected, the ability to leverage these connections to reach the entire network quickly might be slightly diminished.
+
+General Consideration:
+Choosing a seat with high centrality measures can be extremely beneficial for networking purposes, especially in a setting where developing informal connections is crucial. However, it can also mean being in a position that requires active engagement and potentially dealing with an information overload. The best choice depends on one's goals for the internship and your personal comfort with these dynamics. For someone looking to maximize their networking opportunities and doesn't mind the high engagement, Seats B and C seem particularly advantageous. Seat A offers unique influence potential, while Seat D might be preferable for those seeking a balance between connectivity and a more manageable social interaction level.Me personally would prefer seat D, which I want some of the connection but more relaxed
